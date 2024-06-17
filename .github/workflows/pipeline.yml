@@ -11,19 +11,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Run build
+      - name: Use Node.js 20.x
         uses: actions/setup-node@v3
         with:
           node-version: 20.x
-      - run: yarn --frozen-lockfile
-      
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Run test
-        uses: actions/setup-node@v3
-        with:
-          node-version: 20.x
-      - run: yarn test
 
+      - name: Run Build
+        run: yarn --frozen-lockfile
+      
+      - name: Run Build
+        run: yarn test
